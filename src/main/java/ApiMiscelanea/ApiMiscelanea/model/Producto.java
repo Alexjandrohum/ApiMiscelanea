@@ -18,20 +18,21 @@ import org.springframework.lang.Nullable;
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Nullable
+    @Column(name = "id_producto")
     private Integer idProducto;
 
-    @Column
+    @Column(name = "nombre_producto")
     private String nombreProducto;
 
     @Column
     private float precio;
 
-    @Column
+    @Column(name = "fecha_creado")
     private Date fechaCreado;
 
-    @Column
+    @Column(name = "fecha_modificado")
     private Date fechaModificado;
 
     @Column
@@ -83,6 +84,11 @@ public class Producto {
 
     public void setEstado(String activo) {
         this.estado = activo;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "idProducto=" + idProducto + ", nombreProducto=" + nombreProducto + ", precio=" + precio + ", fechaCreado=" + fechaCreado + ", fechaModificado=" + fechaModificado + ", estado=" + estado + '}';
     }
 
 }
